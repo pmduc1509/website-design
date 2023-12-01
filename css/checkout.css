@@ -1,0 +1,96 @@
+#billing-payment {
+    margin-top: 120px;
+}
+   #billing-payment .text-font{
+    font-weight: 700;
+    letter-spacing: .156rem;
+    font-size: 15px;
+    }
+    #billing-payment .text-price{
+    padding: 0 .625rem;
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: .813rem;
+    letter-spacing: 1.6px;
+    }
+    #billing-payment .text-descriptions{
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.125rem;
+    margin: .313rem 0 .938rem;
+    padding: 0 .625rem;
+    padding: 5px 0px;
+    }
+    #billing-payment .button-color{
+    color: #4e4e4e ;
+    border-color: #4e4e4e ;
+    }
+    #billing-payment .button-order{
+    font-style: normal;
+    font-size: .75rem;
+    font-weight: 700;
+    background-color: #000;
+    color: white;
+    border-radius: 0 ;
+    }
+    
+    #billing-payment .text-center {
+        margin-top: 15px;
+    }
+
+    #billing-payment .text-center-2 {
+        margin-top: 15px;
+    }
+
+    #billing-payment #delivery-column {
+       height: 500px;
+    }
+
+    #billing-payment #give-code-text {
+        width: 30%;
+        margin-bottom: 10px;
+    }
+
+    #billing-payment #headingOne {
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-bottom: 50px;
+    }
+
+
+    #billing-payment #backToShop {
+        margin-top: 10px;
+    }
+
+    #billing-payment   #item-cart {
+        height: auto;
+    }
+
+    #billing-payment .card-footer {
+        border: none;
+        background-color: white ;
+    }
+
+    #billing-payment #button-process {
+        color: white;
+        outline: none;
+    }
+
+    #billing-payment #button-process:hover {
+        outline: none;
+        text-decoration: none;
+    }
+
+    #billing-payment #button-payment {
+        width: 200px;
+        margin-bottom: 15px;
+        font-size: 12px;
+    }
+
+    #billing-payment #button-cod {
+        width: 200px;
+        font-size: 12px;
+        background-color: green;
+    }

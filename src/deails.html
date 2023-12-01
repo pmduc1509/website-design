@@ -1,0 +1,589 @@
+
+<section id="header">
+    <a href="#" class="logo1">Plamt</a>
+    <div class="nav-bar1">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#!product">Product</a></li>
+            <li><a href="#!aboutUs">About us</a></li>
+            <li><a href="#!blog">Blog</a></li>
+            <li><a href="#!contact">Contact</a></li>
+        </ul>
+  </div>  
+    <div class="nav-icon1">
+        <div class="search-box1">
+            <input class="search-input1" type="text" placeholder="Search..." id="search" name="search" ng-model="product.name">
+            <a class="search-icon1"><i class="bx bx-search"></i></a>
+        </div>
+        <a href="/src/login.html"><i class="bx bx-user"></i></a>
+        <a href="#"><i class="bx bx-heart"></i></a>
+        <a ng-click="showcart()" style="cursor: pointer;">
+            <i class="bx bx-cart" ></i>
+            <div class="count-cart">
+                <p class="count-cart-sup" ng-show="count > 0">{{ count }} </p>
+            </div>
+        </a>
+    </div>
+</section>
+<!-- Show cart -->
+
+    <div class="showcart" ng-class="{ 'active': showCart }">
+        <div class="cart-detail">
+            <div class="title-cart">
+                <p>SHOPPING CART({{ count }})</p>
+                <p><a ng-click="closeCart()" style="cursor: pointer;"><i class="icon-close fa-solid fa-xmark fa-xl"></i></a></p>
+            </div>
+            <div style="overflow-y: scroll; margin-top: 20px;">
+
+                <div class="content-cart" ng-repeat="item in cartItems">
+                    <div class="content-left">
+                        <img ng-src="{{ item.img1 }}">
+                    </div>
+                    <div class="content-right">
+                        <p>
+                            {{ item.name }}
+                        </p>
+                        <div class="quantity-price">
+                            <div class="price">
+                                <button ng-click="downquantity(item)">-</button>
+                            <input type="number" ng-model="item.quantity" min="1" ng-change="updateQuantity(item)">
+                            <button ng-click="upquantity(item)">+</button>
+                            <p>
+                                {{ item.price }}$
+                            </p>
+                            </div>
+    
+                            <div class="remove">
+                                <a ng-click="deleteCartItems(item.id)" style="cursor: pointer;">Remove</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+     
+            </div>
+            
+        </div>
+        <div class="total-cart">
+            <div style="display: none;">{{ calculateSubTotal(item) | number: 2 }}</div>
+            <div class="title-total">
+                <p style="font-weight: 600;">Total</p>
+            </div>
+            <div class="title-price">
+                <p style="font-weight: 600;">{{ totalPrice | number: 2 }}$</p>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-cart">
+            <a href="#!checkout" style="color: black; font-size: 16px;">
+                <button class="btn-checkout">Check out</button>
+            </a>
+            <a href="#!viewCart" style="color: black; font-size: 16px;">
+                <button class="btn-viewcart">View cart</button>
+            </a>
+        </div>
+
+    </div>
+
+
+<div class="overlay" ng-class="{ 'active': showCart }" ng-click="closeCart()"></div> 
+
+<!-- Deatils -->
+<div class="container-fluid" id="product-container" style="margin-top: 105px;">
+    <div class="row move-to-index">
+        <span><a href="#">Home</a></span><span>&rarr;</span><span>{{ productDetails.name }}</span>
+    </div>
+    <div class="row product-detail">
+        <div class="col-sm-6 product-slide">
+            <div id="product-img-slide" class="carousel slide" data-ride="carousel">
+                <ul class="carousel-indicators nav-btn">
+                  <li data-target="#product-img-slide" data-slide-to="0" class="active">
+
+                  </li>
+                  <li data-target="#product-img-slide" data-slide-to="1">
+                    
+                  </li>
+                  <li data-target="#product-img-slide" data-slide-to="2">
+                    
+                  </li>
+                </ul>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img ng-src="{{ productDetails.img1 }}" class="product-img-in-slide">
+                  </div>
+                  <div class="carousel-item">
+                    <img ng-src="{{ productDetails.img2 }}" class="product-img-in-slide">
+                  </div>
+                  <div class="carousel-item">
+                    <img ng-src="{{ productDetails.img3 }}"  class="product-img-in-slide">
+                  </div>
+                </div>
+                
+                  
+              </div>
+        </div>
+        <div class="col-sm-6 product-detail">
+            <h3 class="name">{{ productDetails.name }}</h3>
+            <h5 class="price">${{ productDetails.price }}</h5>
+            <hr class="solid">
+            <p class="product-detail-p">Begonias are a diverse and popular group of flowering plants known for their stunning foliage and colorful flowers. They come in various sizes, shapes, and colors, making them a favorite choice for indoor and outdoor gardens. The leaves of begonias can range from small and rounded to large and deeply lobed, and they often feature intricate patterns and vibrant hues.</p>
+            <div class="jumbotron special-offer">
+                <h5>Special Offer</h5>
+                <ul>
+                    <li>In Stock  <span class="badge badge-success">New</span></li>
+                    <li>Free Delivery Available*</li>
+                    <li>Sale 30% Off Use Code: Techwiz  <span class="badge badge-success">Limited</span></li>
+                </ul>
+            </div>
+            <h6 class="sold">10 sold in last 24 hours</h6>
+            <div class="buy">
+                <!-- <div class="quantity-control">
+                    <button type="button" class="btn btn-outline-secondary btn-sm quantity-btn" id="decrease">-</button>
+                    <input type="number" id="quantity" class="form-control form-control-sm" value="1" min="1" disabled>
+                    <button type="button" class="btn btn-outline-secondary btn-sm quantity-btn" id="increase">+</button>
+                </div> -->
+                <div class="buy-add">
+                    <button class="add-cart" ng-click="addToCart(productDetails)">
+                        <span ><i class="bx bx-cart"></i></span>
+                        Add to cart
+                    </button>
+                </div>
+            </div>
+            <!-- <div class="ship-detail">
+                <button type="button" class="btn modal-btn" data-toggle="modal" data-target="#deliModal">
+                    Delivery
+                </button>
+                <div class="modal" id="deliModal">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title">Delivery</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                All orders shipped with UPS Express.
+                                <br>
+                                Always free shipping for orders over US $250.
+                                <br>
+                                All orders are shipped with a UPS tracking number.
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <button type="button" class="btn modal-btn" data-toggle="modal" data-target="#returnModal">
+                    Returns
+                </button>
+                <div class="modal" id="returnModal">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title">Delivery and Returns</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Items returned within 14 days of their original shipment date in same as new condition will be eligible for a full refund or store credit.
+                                <br>
+                                Refunds will be charged back to the original form of payment used for purchase.                              
+                                <br>
+                                Customer is responsible for shipping charges when making returns and shipping/handling fees of original purchase is non-refundable.                               
+                                <br>
+                                All sale items are final purchases.
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+<div id="details">
+    <div class="row">
+        <div class="icon-contain">
+            <div class="icons">
+                <img width="50" height="50" src="https://img.icons8.com/wired/64/airport.png" alt="airport"/>
+                <p class="icon-tittle">Worldwide shipping</p>
+            </div>
+            <div class="icons">
+                <img width="50" height="50" src="https://img.icons8.com/external-ddara-lineal-ddara/64/external-refund-delivery-services-ddara-lineal-ddara.png" alt="external-refund-delivery-services-ddara-lineal-ddara"/>
+                <p class="icon-tittle">Free 50 - day returns</p>
+            </div>
+            <div class="icons">
+                <img width="50" height="50" src="https://img.icons8.com/dotty/80/certificate.png" alt="certificate"/>
+                <p class="icon-tittle">24 MONTH WARRANTY</p>
+            </div>
+            <div class="icons">
+                <img width="50" height="50" src="https://img.icons8.com/ios/50/security-checked--v1.png" alt="security-checked--v1"/>
+                <p class="icon-tittle">100% SECRUE CHECKOUT</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <nav class="nav">
+            <button data-target="#description" class="nav-link" data-toggle="tab">description</button>
+             <button data-target="#additonal" class="nav-link" data-toggle="tab">Additonal Information</button>
+             <button data-target="#review" class="nav-link" data-toggle="tab">Review</button>
+             
+             
+        </nav>
+        <hr>
+        <div class="tab-content py-5">
+            <div class="tab-pane active" id="description">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="/img/details/waterCan.jpg" alt="" width="100%">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="desc-content"> 
+                            <h2><b>Thing you need to know</b></h2>
+                            <h3>ScientificName:<span style="font-weight: 400; font-size: 14px; color: #333;">{{ productDetails.scientificName }}</span></h3>
+                            <h3>Watering circle:</h3>
+                            <p style="font-weight: 400; font-size: 14px; color: #333;">
+                                {{ productDetails.wateringCycle }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="desc-content"> 
+                            <h2><b>Things You Need To Know</b></h2>
+                            <h3>Origin Country:</h3>
+                            <p>
+                                {{ productDetails.originCountry }}
+                            </p>
+                            <h3>Light Requirements:</h3>
+                            <p>
+                                {{ productDetails.lightRequirements }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="/img/details/details2.webp" alt="" width="100%">
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="additonal">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="title-content">
+                            <p>More Information to you</p>
+                            <h3>Our Advantage</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 content1">
+                                <p>We use industry standard SSL encryption to protect your details. Potentially sensitive information such as your name, address and card details are encoded so they can only be read on the secure server.</p>
+                                <ul class="px-0 list-unstyled">
+                                    <li>Safe Payments</li>
+                                    <li>Accept Credit Cart</li>
+                                    <li>Different Payment Method</li>
+                                    <li>Price Include VAT</li>
+                                    <li>Easy To Order</li>
+                                  </ul>
+                            </div>
+                            <div class="col-md-6 content2">
+                                <div class="infor2">
+                                  <h3>Express Delivery</h3>
+                                  <ul class="px-0 list-unstyled">
+                                    <li>Europe &amp; USA within 2-4 days</li>
+                                    <li>Rest of the world within 3-7 days</li>
+                                    <li>Selected locations</li>
+                                  </ul>
+                                </div>
+                                <div class="infor2">
+                                  <h3>Need more information</h3>
+                                  <ul class="px-0 list-unstyled">
+                                    <li><a href="">Orders &amp; Shipping</a></li>
+                                    <li><a href="">Returns &amp; Refunds</a></li>
+                                    <li><a href="">Payments</a></li>
+                                    <li><a href="">Your Orders</a></li>
+                                  </ul>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img ng-src="{{ productDetails.img1 }}" back-ground-color="#e5e5e5" width="100%">
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="review">
+                <div class="cus">
+                    <div class="feedbacks">
+                        <div class="user">
+                            <img width="50" height="50" src="/img/details/user1.jpg" alt="" style="border-radius: 50px;">
+                            <h3>Edward D Gate</h3>
+                        </div>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <div class="content-review">
+                            <p>I'm overjoyed with the plant I purchased from Plamt. It arrived in perfect condition and has blossomed beautifully in my home. The variety and quality of plants they offer are truly exceptional. A must-visit for all plant enthusiasts!</p>
+                        </div>
+                    </div>
+                    <div class="feedbacks">
+                        <div class="user">
+                            <img width="50" height="50" src="/img/details/user2.jpg" alt="" style="border-radius: 50px;">
+                            <h3>D Luffy</h3>
+                        </div>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <div class="content-review">
+                            <p>Plamt is a plant lover's dream. The knowledgeable staff guided me to the ideal plant for my space. It's flourishing and has brought a calming ambiance to my room. A gem of a store with a superb selection.</p>
+                        </div>
+                    </div>
+                    <div class="feedbacks">
+                        <div class="user">
+                            <img width="50" height="50" src="/img/details/user3.jpg" alt="" style="border-radius: 50px;">
+                            <h3>Akainu</h3>
+                        </div>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <div class="content-review">
+                            <p>My recent plant purchase from Plamt exceeded all expectations. The care put into packaging ensured a safe arrival, and the plant is now thriving. The staff's expertise and passion are evident. I'll definitely be a repeat customer!</p>
+                        </div>
+                    </div>
+                    <div class="feedbacks">
+                        <div class="user">
+                            <img width="50" height="50" src="/img/details/user4.jpg" alt="" style="border-radius: 50px;">
+                            <h3>Roronoa Zoro</h3>
+                        </div>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <div class="content-review">
+                            <p>I'm thrilled with my Plamt find! The plant choices are vast, and I received helpful care instructions. This addition has revitalized my living space. Plamt is now my go-to for lush, healthy plants.</p>
+                        </div>
+                    </div>
+                    <div class="feedbacks">
+                        <div class="user">
+                            <img width="50" height="50" src="/img/details/user5.jpg" alt="" style="border-radius: 50px;">
+                            <h3>Kim so Huyn</h3>
+                        </div>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <img width="20" height="20" src="https://img.icons8.com/fluency/48/star.png" alt="star"/>
+                        <div class="content-review">
+                            <p>I can't rave enough about Plamt! The plant I bought is a testament to their dedication to quality. It's become the centerpiece of my room, garnering compliments from all who see it. An absolute treasure trove for plant enthusiasts!</p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <h1>Feedback</h1>
+                <div class="wrapper">
+                    <h3>Send Feedback</h3>
+                    <form  name="comForm" ng-submit="submitForm1()">
+                        <div class="rating">
+                            <input type="number" name="rating" hidden>
+                            <i class="bx bx-star star" style="--i: 0;"></i>
+                            <i class="bx bx-star star" style="--i: 1;"></i>
+                            <i class="bx bx-star star" style="--i: 2;"></i>
+                            <i class="bx bx-star star" style="--i: 3;"></i>
+                            <i class="bx bx-star star" style="--i: 4;"></i>
+                        </div>
+                        <input type="text" id="username" name="username" ng-model="username"  placeholder="Name">
+                        <div id="nameError1" class="error-message" ng-show="nameError1" style="color: red;">Name is required</div>
+                        <textarea id="message1" name="opinion"  ng-model="message1" cols="30" rows="5" placeholder="Your opinion..."></textarea>
+
+                        <div id="messageError1" class="error-message1" ng-show="messageError1" style="color: red;">Message is required</div>
+                        
+                        <div class="btn-group">
+                            <button type="submit" class="btn submit">Submit</button>
+                            <button class="btn cancel">Cancel</button>
+                        </div>
+                    </form>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="socials">
+        <img width="48" height="48" src="https://img.icons8.com/color/48/twitter--v1.png" alt="twitter--v1"/>
+        <img width="48" height="48" src="https://img.icons8.com/fluency/48/meta.png" alt="meta"/>
+        <img width="48" height="48" src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="instagram-new--v1"/>
+    </div>
+    <hr>
+</div>
+
+    <!-- Sale products -->
+    <section id="sale" style="margin-bottom: 80px; margin-top: 80px;">
+        <div class="container-fluid">
+            <div class="title">
+                    <h3>Sale Off Upcoming</h3>
+                    <p>Sale Off Upcoming Product Next Week!</p>         
+            </div>
+            <div class="row slider-products px-2" slick-slider style="margin: 38px 180px 0px;">
+                    <div class="col-md-12 item-product">
+                        <div class="product-label">
+                            <div class="on-sale">
+                                -50%
+                            </div>
+                        </div>
+                        <div class="on-view">
+                            <img src="/img/icons8-heart-24.png" alt="" style="margin-bottom: 10px; cursor: pointer;" >
+                            <a href=""><img src="/img/icons8-view-24.png" alt=""></a>
+                        </div>
+                        <div class="product-img">
+                            <a href=""><img src="/img/sale/2.webp" alt="" class=""></a>
+                            <a href=""><img src="/img/sale/1.webp" alt="" class="img-change"></a>
+                            <div class="view-detail">
+                                <a href="" >
+                                    Upcoming
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="product-content">
+                            <h6  class="product-name">Cactus</h6>
+                            <p style="font-weight: bold;"><span style="text-decoration: line-through; color: red;">50.00$</span>   25.00$</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12 item-product">
+                        <div class="product-label">
+                            <div class="on-sale">
+                                -50%
+                            </div>
+                        </div>
+                        <div class="on-view">
+                            <img src="/img/icons8-heart-24.png" alt="" style="margin-bottom: 10px; cursor: pointer;" >
+                            <a href=""><img src="/img/icons8-view-24.png" alt=""></a>
+                        </div>
+                        <div class="product-img">
+                            <a href=""><img src="/img/sale/4.webp" alt="" class="d-block img-fluid"></a>
+                            <a href=""><img src="/img/sale/3.webp" alt="" class="img-change"></a>
+                            <div class="view-detail">
+                                <a href="" >
+                                    Upcoming
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <h6  class="product-name">Purple flowers</h6>
+                            <p style="font-weight: bold;"><span style="text-decoration: line-through; color: red;">20.00$</span>   10.00$</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12 item-product">
+                        <div class="product-label">
+                            <div class="on-sale">
+                                -50%
+                            </div>
+                        </div>
+                        <div class="on-view">
+                            <img src="/img/icons8-heart-24.png" alt="" style="margin-bottom: 10px; cursor: pointer;" >
+                            <a href=""><img src="/img/icons8-view-24.png" alt=""></a>
+                        </div>
+                        <div class="product-img">
+                            <a href=""><img src="/img/sale/1.webp" alt="" class="d-block img-fluid"></a>
+                            <a href=""><img src="/img/sale/5.webp" alt="" class="img-change"></a>
+                            <div class="view-detail">
+                                <a href="" >
+                                    Upcoming
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <h6  class="product-name">Banana seaweed</h6>
+                            <p style="font-weight: bold;"><span style="text-decoration: line-through; color: red;">30.00$</span>   15.00$</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12 item-product">
+                        <div class="product-label">
+                            <div class="on-sale">
+                                -50%
+                            </div>
+                        </div>
+                        <div class="on-view">
+                            <img src="/img/icons8-heart-24.png" alt="" style="margin-bottom: 10px; cursor: pointer;" >
+                            <a href=""><img src="/img/icons8-view-24.png" alt=""></a>
+                        </div>
+                        <div class="product-img">
+                            <a href=""><img src="/img/sale/8.webp" alt="" class="d-block img-fluid"></a>
+                            <a href=""><img src="/img/sale/7.webp" alt="" class="img-change"></a>
+                            <div class="view-detail">
+                                <a href="" >
+                                    Upcoming
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <h6  class="product-name">Red betel nut tree</h6> 
+                            <p style="font-weight: bold;"><span style="text-decoration: line-through; color: red;">40.00$</span>   20.00$</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12 item-product">
+                        <div class="product-label">
+                            <div class="on-sale">
+                                -50%
+                            </div>
+                        </div>
+                        <div class="on-view">
+                            <img src="/img/icons8-heart-24.png" alt="" style="margin-bottom: 10px; cursor: pointer;" >
+                            <a href=""><img src="/img/icons8-view-24.png" alt=""></a>
+                        </div>
+                        <div class="product-img">
+                            <a href=""><img src="/img/sale/10.webp" alt="" class="d-block img-fluid"></a>
+                            <a href=""><img src="/img/sale/9.webp" alt="" class="img-change"></a>
+                            <div class="view-detail">
+                                <a href="" >
+                                    Upcoming
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <h6  class="product-name">Trees decor</h6>
+                            <p style="font-weight: bold;"><span style="text-decoration: line-through; color: red;">60.00$</span>   30.00$</p>
+                        </div>
+                    </div>
+            </div>  
+        </div>
+    </section>
+
+<script>
+    // Get the quantity input element
+    var quantityInput = document.getElementById("quantity");
+
+    // Get the increase and decrease buttons
+    var increaseButton = document.getElementById("increase");
+    var decreaseButton = document.getElementById("decrease");
+
+    // Add event listeners to the buttons
+    increaseButton.addEventListener("click", function() {
+        var currentValue = parseInt(quantityInput.value);
+        quantityInput.value = currentValue + 1;
+    });
+
+    decreaseButton.addEventListener("click", function() {
+        var currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+        quantityInput.value = currentValue - 1;
+        }
+    });
+</script>
+
+

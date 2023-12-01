@@ -1,0 +1,184 @@
+<section id="header">
+    <a href="#" class="logo1">Plamt</a>
+        <div class="nav-bar1">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#!product">Product</a></li>
+                <li><a href="#!aboutUs">About us</a></li>
+                <li><a href="#!blog">Blog</a></li>
+                <li><a href="#!contact">Contact</a></li>
+            </ul>
+      </div>  
+        <div class="nav-icon1">
+            <div class="search-box1">
+                <input class="search-input1" type="text" placeholder="Search..." id="search" name="search" ng-model="product.name">
+                <a class="search-icon1"><i class="bx bx-search"></i></a>
+            </div>
+            <a href="/src/login.html"><i class="bx bx-user"></i></a>
+            <a href="#"><i class="bx bx-heart"></i></a>
+            <a ng-click="showcart()" style="cursor: pointer;">
+                <i class="bx bx-cart" ></i>
+                <div class="count-cart">
+                    <p class="count-cart-sup" ng-show="count > 0">{{ count }} </p>
+                </div>
+            </a>
+        </div>
+  </section>
+    <!-- Show cart -->
+   
+        <div class="showcart" ng-class="{ 'active': showCart }">
+            <div class="cart-detail">
+                <div class="title-cart">
+                    <p>SHOPPING CART({{ count }})</p>
+                    <p><a ng-click="closeCart()" style="cursor: pointer;"><i class="icon-close fa-solid fa-xmark fa-xl"></i></a></p>
+                </div>
+                <div style="overflow-y: scroll; margin-top: 20px;">
+
+                    <div class="content-cart" ng-repeat="item in cartItems">
+                        <div class="content-left">
+                            <img ng-src="{{ item.img1 }}">
+                        </div>
+                        <div class="content-right">
+                            <p>
+                                {{ item.name }}
+                            </p>
+                            <div class="quantity-price">
+                                <div class="price">
+                                    <button ng-click="downquantity(item)">-</button>
+                                <input type="number" ng-model="item.quantity" min="1" ng-change="updateQuantity(item)">
+                                <button ng-click="upquantity(item)">+</button>
+                                <p>
+                                    {{ item.price }}$
+                                </p>
+                                </div>
+        
+                                <div class="remove">
+                                    <a ng-click="deleteCartItems(item.id)" style="cursor: pointer;">Remove</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+         
+                </div>
+                
+            </div>
+            <div class="total-cart">
+                <div style="display: none;">{{ calculateSubTotal(item) | number: 2 }}</div>
+                <div class="title-total">
+                    <p style="font-weight: 600;">Total</p>
+                </div>
+                <div class="title-price">
+                    <p style="font-weight: 600;">{{ totalPrice | number: 2 }}$</p>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-cart">
+                <a href="#!checkout" style="color: black; font-size: 16px;">
+                    <button class="btn-checkout">Check out</button>
+                </a>
+                <a href="#!viewCart" style="color: black; font-size: 16px;">
+                    <button class="btn-viewcart">View cart</button>
+                </a>
+            </div>
+
+        </div>
+
+   
+    <div class="overlay" ng-class="{ 'active': showCart }" ng-click="closeCart()"></div> 
+
+<!-- contact -->
+<div id="contact" style="overflow-x: hidden; margin-top: 105px;">
+        <div class="col-md-12" style="margin-bottom: 50px; ">
+            <div class="bg-img1">
+                <div class="title1">
+                    <h1 style="font-size: 100px;">Contact</h1>
+                    <p class="text-center"><a href="">Home</a> 
+                        &gt; 
+                        <!-- <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> -->
+                        <strong style="font-size: 18px;">Contact</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12" style="margin-bottom: 50px;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.0964842999633!2d105.77972177479617!3d21.028825087777246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab86cece9ac1%3A0xa9bc04e04602dd85!2zRlBUIEFwdGVjaCBIw6AgTuG7mWkgLSBI4buHIFRo4buRbmcgxJDDoG8gVOG6oW8gTOG6rXAgVHLDrG5oIFZpw6puIFF14buRYyBU4bq_IChTaW5jZSAxOTk5KQ!5e0!3m2!1sen!2s!4v1691147341080!5m2!1sen!2s" 
+            width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    <div class="container-fluid formAndContact" style="margin-bottom: 50px; padding: 0;">
+        <div class="col-md-8">
+            <form ng-submit="submitForm()">
+                <div class="form-row">
+                    <div class="col-6">
+                        <label for="name" class="label-form">Name:</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" ng-model="name" >
+                        <div id="nameError" class="error-message" ng-show="nameError" style="color: red;">Name is required</div>
+                    </div>
+                    <div class="col-6">
+                        <label for="email" class="label-form">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" ng-model="email" >
+                        <div id="emailError" class="error-message" ng-show="emailError" style="color: red;">Email is required</div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <label style="margin-left: 20px;" for="message" class="label-form">Your message:</label>
+                        <div class="col">
+                            <textarea id="message" cols="135" rows="13" ng-model="message"></textarea>
+                            <div id="messageError" class="error-message" ng-show="messageError" style="color: red;">Message is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="send">
+                    <button type="submit" class="btn-form">SUBMIT</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <div class="info">
+                <h2>Address</h2>
+                <p>8A - Ton That Thuyet - My Dinh - Ha Noi</p>   
+                <hr>
+                <h2>Phone</h2>
+                <p>0123456789</p>
+                <hr>
+                <h2>Email</h2>
+                <p>Email@gmail.com</p>
+                <hr>
+                <h2>Opening Time</h2>
+                <p>8:00Am - 12:00Pm</p>
+            </div>
+        </div>
+    </div>
+    <div id="newsletter" class="container-fluid jumbotron--email">
+        <h1 class="display-4">Our Newsletter</h1>
+        <p class="lead">Enjoy our newsletter to stay updated with the latest news!</p>
+        <form action="" class="email">
+          <div class="input-container">
+            <input aria-required="true" aria-invalid="false" placeholder="Your email..." value="" type="email" name="your-email" required>
+            <button id="button-arrow" type="submit">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </form>
+    </div>
+    <section id="onintagram">
+        <div class="title">
+            <h3>PLAMT ON INSTAGRAM</h3>
+            <p>#plamt</p>         
+        </div>
+        <div class="row container-fluid" style="margin: 0;padding: 0;">
+            <div class="img-contain">
+                    <img src="/img/instagram/instagram1.jpg" alt="">              
+                    <img src="/img/instagram/instagram2.jpg" alt="">
+                    <img src="/img/instagram/instagram3.jpg" alt="">              
+                    <img src="/img/instagram/instagram4.jpg" alt="">
+                    <img src="/img/instagram/instagram5.jpg" alt="">
+                    <div class="button2">
+                        <h3 class="title_insta">Follow Us On Instagram</h3>
+                    </div>
+            </div>
+        </div>
+    </section>
+</div>
+

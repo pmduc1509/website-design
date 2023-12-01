@@ -1,0 +1,214 @@
+<section id="header">
+    <a href="#" class="logo1">Plamt</a>
+        <div class="nav-bar1">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#!product">Product</a></li>
+                <li><a href="#!aboutUs">About us</a></li>
+                <li><a href="#!blog">Blog</a></li>
+                <li><a href="#!contact">Contact</a></li>
+            </ul>
+      </div>  
+        <div class="nav-icon1">
+            <div class="search-box1">
+                <input class="search-input1" type="text" placeholder="Search..." id="search" name="search" ng-model="product.name">
+                <a class="search-icon1"><i class="bx bx-search"></i></a>
+            </div>
+            <a href="/src/login.html"><i class="bx bx-user"></i></a>
+            <a href="#"><i class="bx bx-heart"></i></a>
+            <a ng-click="showcart()" style="cursor: pointer;">
+                <i class="bx bx-cart" ></i>
+                <div class="count-cart">
+                    <p class="count-cart-sup" ng-show="count > 0">{{ count }} </p>
+                </div>
+            </a>
+        </div>
+  </section>
+    <!-- Show cart -->
+   
+        <div class="showcart" ng-class="{ 'active': showCart }">
+            <div class="cart-detail">
+                <div class="title-cart">
+                    <p>SHOPPING CART({{ count }})</p>
+                    <p><a ng-click="closeCart()" style="cursor: pointer;"><i class="icon-close fa-solid fa-xmark fa-xl"></i></a></p>
+                </div>
+                <div style="overflow-y: scroll; margin-top: 20px;">
+
+                    <div class="content-cart" ng-repeat="item in cartItems">
+                        <div class="content-left">
+                            <img ng-src="{{ item.img1 }}">
+                        </div>
+                        <div class="content-right">
+                            <p>
+                                {{ item.name }}
+                            </p>
+                            <div class="quantity-price">
+                                <div class="price">
+                                    <button ng-click="downquantity(item)">-</button>
+                                <input type="number" ng-model="item.quantity" min="1" ng-change="updateQuantity(item)">
+                                <button ng-click="upquantity(item)">+</button>
+                                <p>
+                                    {{ item.price }}$
+                                </p>
+                                </div>
+        
+                                <div class="remove">
+                                    <a ng-click="deleteCartItems(item.id)" style="cursor: pointer;">Remove</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+         
+                </div>
+                
+            </div>
+            <div class="total-cart">
+                <div style="display: none;">{{ calculateSubTotal(item) | number: 2 }}</div>
+                <div class="title-total">
+                    <p style="font-weight: 600;">Total</p>
+                </div>
+                <div class="title-price">
+                    <p style="font-weight: 600;">{{ totalPrice | number: 2 }}$</p>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-cart">
+                <a href="#!checkout" style="color: black; font-size: 16px;">
+                    <button class="btn-checkout">Check out</button>
+                </a>
+                <a href="#!viewCart" style="color: black; font-size: 16px;">
+                    <button class="btn-viewcart">View cart</button>
+                </a>
+            </div>
+
+        </div>
+
+   
+    <div class="overlay" ng-class="{ 'active': showCart }" ng-click="closeCart()"></div> 
+<!-- Blog -->
+<div id="blog" style="margin-top: 105px; overflow-x: hidden;">
+    <div class="row container-fluid">
+       <div class="bg-img1 col-md-12"> 
+            <div class="title">
+                <h1>Blogs</h1>
+                <p><a href="#">Home</a><span>&gt;</span><strong>Blogs</strong></p>
+            </div>
+       </div>
+    </div>
+    <div class="row container-fluid" style="margin: 50px 20px;" >
+        <div class="col-md-8">
+            <div>
+                <img src="/img/blog/blog-1.jpg" alt="blog1" width="100%" style="position: relative;">
+            </div>
+            <div class="buttonImg">
+                <ul>
+                    <a href="">
+                        <li>Tree Decor</li>
+                    </a>
+                    <a href="">
+                        <li>Tree Feng Shui</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="blog-post">
+                <div class="blog-title">
+                    <div>JUNE 8,2023</div>
+                    <h1 style="font-weight: bold;">Plants are used to decorate the room and match feng shui</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente similique ipsam quidem assumenda facilis perspiciatis nesciunt quia nisi veniam alias sint, porro, autem facere optio natus nemo dignissimos error! Assumenda.</p>    
+                    <a href="">Read More</a>               
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 cata-col">
+            <div class="searchBox">
+                <input type="text" class="searchInput" placeholder="Search">
+                <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/search--v1.png" class="searchIcon"/>
+            </div>
+            <div class="categories">
+                <h1>Categories</h1>
+                <div class="cate-list">
+                    <ul>
+                        <li>Tree Type 1</li>
+                        <li>Tree Type 2</li>
+                        <li>Tree Type 3</li>
+                        <li>Tree Type 4</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="asdie-post">
+                <h1>Latest Posts</h1>
+                <div class="post-box">
+                    <img src="/gardening="post-content">
+                        <div>JUNE 8,2023</div>
+                        <h4>Plants are used to decorate the room and match feng shui</h4>
+                    </div>
+                </div>
+                <div class="post-box">
+                    <img src="/img/blog/blog-1.jpg" width="28%" height="100px">
+                    <div class="post-content">
+                        <div>JUNE 8,2023</div>
+                        <h4>How to properly care for plants?</h4>
+                    </div>
+                </div>
+                <div class="post-box">
+                    <img src="/img/blog/blog-1.jpg" width="28%" height="100px">
+                    <div class="post-content">
+                        <div>JUNE 8,2023</div>
+                        <h4>Plants that need a lot of water</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row container-fluid">
+        <div class="col-md-6">
+            <img src="/img/blog/blog2.webp" width="100%" style="margin-left: 30px;">
+        </div>
+        <div class="col-md-6 blog-content">
+            <h1 style="font-weight: bold;">Interesting Things You Didn't Know</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis saepe consequuntur recusandae, ducimus sed necessitatibus blanditiis....</p>
+            <a href="#">Read More</a>
+        </div>
+    </div>
+    <div class="row container-fluid">
+        <div class="col-md-6 blog-content">
+            <h1 style="font-weight: bold;">Do You Really Understand Yourself?</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis saepe consequuntur recusandae, ducimus sed necessitatibus blanditiis....</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="col-md-6">
+            <img src="/img/blog/blog3.webp" width="100%">
+        </div>
+    </div>
+    <div class="row container-fluid">
+        <div class="col-md-6">
+            <img src="/img/blog/blog4.webp" width="100%" style="margin-left: 30px;">
+        </div>
+        <div class="col-md-6 blog-content">
+            <h1 style="font-weight: bold;">The most useful things for you</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis saepe consequuntur recusandae, ducimus sed necessitatibus blanditiis....</p>
+            <a href="#">Read More</a>
+        </div>
+    </div>
+</div>
+
+    <section id="onintagram">
+        <div class="title">
+            <h3>PLAMT ON INSTAGRAM</h3>
+            <p>#plamt</p>         
+        </div>
+        <div class="row container-fluid" style="margin: 0;padding: 0;">
+            <div class="img-contain">
+                    <img src="/img/instagram/instagram1.jpg" alt="">              
+                    <img src="/img/instagram/instagram2.jpg" alt="">
+                    <img src="/img/instagram/instagram3.jpg" alt="">              
+                    <img src="/img/instagram/instagram4.jpg" alt="">
+                    <img src="/img/instagram/instagram5.jpg" alt="">
+                    <div class="button2">
+                        <h3 class="title_insta">Follow Us On Instagram</h3>
+                    </div>
+            </div>
+        </div>
+    </section>

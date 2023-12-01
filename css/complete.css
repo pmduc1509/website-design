@@ -1,0 +1,25 @@
+#thanks-for-buying-container .tks-for-buy-card {
+    margin-top: 205px;
+    margin-bottom: 100px;
+}
+
+#thanks-for-buying-container h1 {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-top: 50px;
+}
+#thanks-for-buying-container p {
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+
+
+#thanks-for-buying-container .border-card {
+    border: 2px solid black; 
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
