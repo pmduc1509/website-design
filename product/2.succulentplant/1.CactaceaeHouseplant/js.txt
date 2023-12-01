@@ -1,0 +1,6 @@
+id: 4
+name: Cactaceae Houseplant
+price: 12.00
+quantity: 43
+desc:   Cactaceae houseplants, also known as cacti, are unique succulents native to arid Americas. They have thick stems that store water, spines for protection, and vibrant flowers. They grow slowly, need bright sunlight, infrequent watering, and well-draining soil. Ideal for low-humidity indoor environments.
+

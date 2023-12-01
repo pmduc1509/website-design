@@ -1,0 +1,163 @@
+<section id="header">
+    <a href="#" class="logo1">Plamt</a>
+        <div class="nav-bar1">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#!product">Product</a></li>
+                <li><a href="#!aboutUs">About us</a></li>
+                <li><a href="#!blog">Blog</a></li>
+                <li><a href="#!contact">Contact</a></li>
+            </ul>
+      </div>  
+        <div class="nav-icon1">
+            <div class="search-box1">
+                <input class="search-input1" type="text" placeholder="Search..." id="search" name="search" ng-model="product.name">
+                <a class="search-icon1"><i class="bx bx-search"></i></a>
+            </div>
+            <a href="/gardening/src/login.html"><i class="bx bx-user"></i></a>
+            <a href="#"><i class="bx bx-heart"></i></a>
+            <a ng-click="showcart()" style="cursor: pointer;">
+                <i class="bx bx-cart" ></i>
+                <div class="count-cart">
+                    <p class="count-cart-sup" ng-show="count > 0">{{ count }} </p>
+                </div>
+            </a>
+        </div>
+  </section>
+    <!-- Show cart -->
+   
+        <div class="showcart" ng-class="{ 'active': showCart }">
+            <div class="cart-detail">
+                <div class="title-cart">
+                    <p>SHOPPING CART({{ count }})</p>
+                    <p><a ng-click="closeCart()" style="cursor: pointer;"><i class="icon-close fa-solid fa-xmark fa-xl"></i></a></p>
+                </div>
+                <div style="overflow-y: scroll; margin-top: 20px;">
+
+                    <div class="content-cart" ng-repeat="item in cartItems">
+                        <div class="content-left">
+                            <img ng-src="{{ item.img1 }}">
+                        </div>
+                        <div class="content-right">
+                            <p>
+                                {{ item.name }}
+                            </p>
+                            <div class="quantity-price">
+                                <div class="price">
+                                    <button ng-click="downquantity(item)">-</button>
+                                <input type="number" ng-model="item.quantity" min="1" ng-change="updateQuantity(item)">
+                                <button ng-click="upquantity(item)">+</button>
+                                <p>
+                                    {{ item.price }}$
+                                </p>
+                                </div>
+        
+                                <div class="remove">
+                                    <a ng-click="deleteCartItems(item.id)" style="cursor: pointer;">Remove</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+         
+                </div>
+                
+            </div>
+            <div class="total-cart">
+                <div style="display: none;">{{ calculateSubTotal(item) | number: 2 }}</div>
+                <div class="title-total">
+                    <p style="font-weight: 600;">Total</p>
+                </div>
+                <div class="title-price">
+                    <p style="font-weight: 600;">{{ totalPrice | number: 2 }}$</p>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-cart">
+                <a href="#!checkout" style="color: black; font-size: 16px;">
+                    <button class="btn-checkout">Check out</button>
+                </a>
+                <a href="#!viewCart" style="color: black; font-size: 16px;">
+                    <button class="btn-viewcart">View cart</button>
+                </a>
+            </div>
+
+        </div>
+
+   
+    <div class="overlay" ng-class="{ 'active': showCart }" ng-click="closeCart()"></div>  
+  
+
+
+<!-- View my cart -->
+  <div id="shoppingcart-container" class="container-fluid d-flex justify-content-center">
+    <div class="card">
+      <div class="row">
+          <div class="col-md-8 cart">
+              <div class="title">
+                  <div class="row">
+                      <div class="col"><h4><b>Shopping Cart</b></h4></div>
+                      <div class="col align-self-center text-right text-muted">{{ count }} items</div>
+                  </div>
+              </div>                 
+              <div class="row border-top border-bottom" ng-repeat="item in cartItems">
+                  <div class="row main align-items-center" >
+                      <div class="col-2"><img class="img-fluid" ng-src="{{ item.img1  }}"></div>
+                      <div class="col">
+                          <div class="row" style="font-size: 16px;">{{ item.name  }}</div>
+                      </div>
+                      <div class="col">
+                          <!-- <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a> -->
+                          <div class="price">
+                            <button ng-click="downquantity(item)">-</button>
+                          <input type="number" ng-model="item.quantity" min="1" ng-change="updateQuantity(item)">
+                          <button ng-click="upquantity(item)">+</button>
+                          </div>
+                      </div>
+                      <div class="col" style="font-size: 16; font-weight: 600;">${{ calculateSubTotal(item) | number: 2 }} 
+                        <span class="close" ng-click="deleteCartItems(item.id)"><i class="fa-solid fa-trash fa-xl"></i></span>
+                    </div>
+                  </div>
+              </div>
+              <div class="back-to-shop"><a href="#!product">&leftarrow; Back to shop</a></div>
+          </div>
+          <div class="col-md-4 summary">
+              <div><h5><b>Summary</b></h5></div>
+              <hr>
+              <div class="row">
+                  <div class="col" style="padding-left:0;">Item(s) total</div>
+                  <div class="col text-right">${{ totalPrice | number: 2 }}</div>
+              </div>
+              <div class="row">
+              <p>Tax:</p> <p class="col text-right">$2.50</p>
+            </div>
+              <div class="row">
+                <p>SHIPPING:</p>
+                <p class="col text-right">$5.00 </p>
+                </div>
+              <form>
+                  <select>
+                    <option class="text-muted">Standard-Delivery- &euro;5.00</option>
+                  </select>
+                  <p>GIVE CODE</p>
+                  <input id="code" placeholder="Enter your code">
+              </form>
+              <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                  <div class="col">TOTAL</div>
+                  <div class="col text-right" style="color: red;">${{ total| number: 2 }}</div>
+              </div>
+              <a href="#!checkout">
+              <button class="btn">Proceed to Checkout</button>
+            </a>
+          </div>
+      </div>   
+    </div>
+  </div>
+
+    
+    
+    
+
+    
+   

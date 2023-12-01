@@ -1,0 +1,128 @@
+
+ol,ul{
+    list-style: none;
+}
+a, a:hover{
+    text-decoration: none;
+}
+
+#blog .bg-img1{
+    background-image: url(/gardening/img/blog/collection.jpg);
+    padding: 200px 0px;
+    background-position: center;
+    background-size: cover;
+    position: relative; 
+}
+#blog .title{
+    position: absolute;
+    left: 42%;
+    top: 30%;
+    color: #fff;
+    font-size: 18px;
+}
+#blog .title h1{
+    font-size: 100px;
+    margin-bottom: 10px;
+    margin-top: -50px;
+}
+#blog h1:hover{
+    color: greenyellow;
+}
+#blog .title a,span,strong{
+   margin: 0 5px;
+}
+#blog .title a:hover{
+    text-decoration: underline;
+}
+#blog .title p a{
+    text-decoration: none;
+    color: #fff;
+}
+#blog .title p{
+    text-align: center;
+}
+#blog .row{
+    margin-bottom: 50px;
+}
+#blog .buttonImg ul{
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    margin-top: -70px;
+    margin-left: 30px;
+}
+#blog .buttonImg ul li{
+    border: 1px solid greenyellow;
+    padding: 10px 20px;
+    background-color: #fff;
+    font-weight: 600;
+    color: black;
+}
+#blog .buttonImg ul li:hover{
+    background-color: greenyellow;
+}
+#blog .post-content h4:hover{
+    color: greenyellow;
+}
+#blog .cata-col{
+   padding-left: 40px;
+}
+#blog .searchInput{
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 10px;
+}
+#blog .searchInput:focus{
+    outline: none;
+}
+#blog .searchIcon{
+    position: absolute;
+    right: 20%;
+    top: 1.5%;
+}
+#blog .categories{
+    margin-top: 25px;
+}
+#blog .cate-list{
+    margin-top: 10px;
+    font-size: large;
+}
+#blog .cate-list ul li{
+    padding-top: 20px;
+}
+#blog .cate-list ul li:hover{
+    color: greenyellow;
+}
+#blog .post-box{
+    display: flex;
+    margin-top: 10px;
+}
+#blog .post-content{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    font-size: 15px;
+}
+#blog .post-content h4{
+    font-size: 20px;
+}
+#blog .asdie-post{
+    margin-top: 20px;
+}
+#blog .blog-content{
+    margin-top: 100px;
+    padding-left: 80px;
+}
+#blog .blog-content2{
+    margin-top: 100px;
+    padding-left: 120px;
+}
+#blog .blog-content a{
+    border: 1px solid green;
+    padding: 10px 20px;
+    
+}
+#blog .blog-content a:hover{
+    background-color: chartreuse;
+}

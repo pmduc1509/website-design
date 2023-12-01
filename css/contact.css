@@ -1,0 +1,216 @@
+
+#contact .bg-img1{
+    background-image: url(/gardening/img/contact/collection.jpg);
+    padding: 200px 0px;
+    background-position: center;
+    background-size: cover;
+    position: relative; 
+}
+#contact .title1{
+    color: #fff;
+}
+#contact .title1 a{
+    color: #fff;
+    font-size: 18px;
+}
+#contact .bg-img1 div{
+    position: absolute;
+    top: 50%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+}
+
+#contact .label-form {
+    margin: 15px auto 5px 10px;
+}
+
+#contact .btn-form {
+    margin: 15px auto;
+    padding: 15px 60px;
+    color: #fff;
+    background-color: #000;
+    border: none;
+}
+
+#contact .send {
+    width: 100%;
+    text-align: center;
+}
+
+#contact .btn-form:hover {
+    background-color: #224229;
+    transition: all 0.5s ease-in-out;
+}
+/* #contact .form-control{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+} */
+/* #contact .form-control div input[type=text], input[type=email],input[type=tel]{
+    height: 40px;
+    width: 260px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+#contact .contact-form textarea{
+    width: 100%;
+    max-width: 900px;
+    max-height: 370px;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+#contact .contact-form label{
+    color: var(--gray-dark,#000);
+    font-size: calc(var(--font-size-body,14px) + 2px);
+    font-weight: 600;
+} */
+#contact .contact-form .btn{
+    height: 55px;
+    padding: 0 55px;
+    background: transparent;
+    border: 1px solid var(--gray-dark,#000);
+    margin-top: 30px;
+}
+#contact .info{
+    display: flex;
+    flex-direction: column;
+    margin-left: 120px;
+    
+}
+#contact .info p{
+    margin-top: -5px;
+}
+#contact .info hr{
+    width: 100%;
+}
+#contact .formAndContact{
+    display: flex;
+    margin-left: 3%;
+}
+/* NewsLetter */
+
+.jumbotron--email {
+    background-image: url(/gardening/img/contact/jess-bailey-K9BOrwoFVYc-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 65px 0 70px 0px;
+    height: 300px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+    
+}
+
+.jumbotron--email h1 {
+    text-align: center;
+    color: black;
+    margin-top: -1%;
+    margin-bottom: 20px;
+}
+.jumbotron--email p {
+    text-align: center;
+    justify-content: center;
+    color: grey;
+    font-size: 15px;
+}
+
+.jumbotron--email .email input[type=email] {
+    width: 235%;
+    border: none;
+    border-bottom: 1.5px solid grey;
+    padding: 5px 6px;
+    height: 40px;
+    background: transparent;
+    border-radius: 0;
+    outline: none;
+    margin-left: -70%;
+}
+
+
+#newsletter #button-arrow {
+    color: black;
+    border: none;
+    margin-left: 100%;
+    border-radius: 0;
+    font-size: 20px;
+    z-index: 1;
+    position: absolute;
+    top: 5%;
+    transition: transform 0.3s ease;
+    outline: none;
+    background: none;
+}
+
+#newsletter #button-arrow:hover {
+    outline: none;
+    transform: scale(1.1);
+}
+
+.jumbotron--email .email {
+    position: relative;
+    width: 17%;
+  }
+  /* our instagram */
+#onintagram {
+    margin-top: 80px;
+}
+#onintagram .title {
+    text-align: center;
+}
+#onintagram .title h3 {
+    font-size: 24;
+    color: #222222;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-skip-ink: auto;
+}
+#onintagram .title p {
+    padding-top: 10px;
+    font-size: 22px;
+    color: #666666;
+}
+#onintagram .img-contain{
+    display: flex;
+    position: relative;
+    /* margin-left: 50px; */
+    padding: 0;
+}
+#onintagram .img-contain img {
+    width: 20%;
+}
+#onintagram .title_insta {
+    color: #333;
+    margin: 0;
+    font-size: 16px;
+    line-height: 52px;
+    white-space: nowrap;
+    background-color: #fff;
+    cursor: pointer;
+}
+#onintagram .button2 h3{
+    position: absolute;
+    top: 35%;
+    left:43%;
+    padding: 3px 10px;
+    border-radius: 10px;
+}
+#onintagram .button2 h3:hover{
+    background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+    transition: 0.2s;
+}
+#onintagram .title_insta:before {
+    display: inline-block;
+    content: "";
+    width: 28px;
+    height: 28px;
+    background: url(/gardening/img/instagram/instagram.svg) no-repeat;
+    margin-right: 12px;
+    position: relative;
+    top: 9px;
+}

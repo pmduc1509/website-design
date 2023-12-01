@@ -1,0 +1,7 @@
+id: 2
+name: Arecaceae Chamaedorea
+price: 22.00
+quantity: 55
+desc: 
+Arecaceae Chamaedorea, commonly called parlor palms, are indoor plants known for their graceful appearance and air-purifying qualities. They feature elegant, feathery fronds that grow from a central stem, making them suitable for homes and offices. Parlor palms thrive in low to moderate light and can bring a touch of tropical ambiance to interior spaces.
+

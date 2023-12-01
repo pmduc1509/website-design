@@ -1,0 +1,79 @@
+#payment-container .text-font{
+    font-weight: 700;
+    letter-spacing: .156rem;
+    font-size: 1.125rem;
+    }
+#payment-container .text-price{
+    padding: 0 .625rem;
+    font-style: normal;
+    font-size: .75rem;
+    font-weight: 700;
+    line-height: .813rem;
+    letter-spacing: 1.6px;
+    }
+#payment-container .text-descriptions{
+    font-style: normal;
+    font-size: .75rem;
+    font-weight: 400;
+    line-height: 1.125rem;
+    margin: .313rem 0 .938rem;
+    padding: 0 .625rem;
+    }
+#payment-container .button-color{
+    color: #4e4e4e ;
+    border-color: #4e4e4e ;
+    }
+#payment-container .button-order{
+    font-style: normal;
+    font-size: .75rem;
+    font-weight: 700;
+    background-color: #000;
+    color: white;
+    border-radius: 0 ;
+    }
+    
+#payment-container .text-center {
+        margin-top: 15px;
+    }
+
+#payment-container .text-center-2 {
+        margin-top: 15px;
+    }
+
+#payment-container #delivery-column {
+       height: 500px;
+    }
+
+#payment-container #give-code-text {
+        width: 30%;
+        margin-bottom: 10px;
+    }
+
+#payment-container #headingOne {
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-bottom: 50px;
+    }
+
+
+#payment-container .back-to-shop {
+        margin-top: 10px;
+    }
+
+#payment-container #item-cart {
+        height: auto;
+    }
+
+#payment-container .card-footer {
+        border: none;
+        background-color: white ;
+    }
+
+#payment-container #button-payment {
+        color: white;
+    }
+
+
+#payment-container #button-pay {
+}
+

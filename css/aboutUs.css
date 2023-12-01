@@ -1,0 +1,233 @@
+@media (min-width: 576px) { ... }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+
+
+/* About Us */
+
+#jumbotron-aboutUs {
+    background-image: url(/gardening/img/aboutUs/sushobhan-badhai-LrPKL7jOldI-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    border-radius: 0;
+    display: flex;
+    margin-bottom: 60px;
+}
+
+#jumbotron-aboutUs #aboutus-pos {
+    margin-top: 50px;
+}
+
+#jumbotron-aboutUs #about-us-text {
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-align: center;
+    font-size: 46px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+#jumbotron-aboutUs .home-page {
+    color: white;
+    text-align: center;
+    font-size: 16px;
+}
+
+#jumbotron-aboutUs #home-text {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 5px;
+}
+
+#jumbotron-aboutUs#Strong-aboutUs {
+    margin-left: 5px;
+}
+
+
+
+/* intro (story and Who Are We) */
+
+.aboutus-section #container-story-whoAreWe {
+    max-width: 1170;
+}
+
+.aboutus-section #row-intro {
+    display: flex;
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-bottom: 100px;
+}
+
+.aboutus-section #intro-detail {
+    padding-bottom: 70px;
+    align-items: center;
+}
+
+.aboutus-section .title-intro {
+    margin-bottom: 20px;
+}
+
+.aboutus-section #row-whoAreWe {
+    display: flex;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.aboutus-section #whoAreWe-detail {
+    padding-bottom: 70px;
+    align-items: center;
+}
+
+.aboutus-section .title-whoAreWe {
+    margin-bottom: 20px;
+}
+
+/* Service Box */
+
+.aboutus-pages #about-servicebox {
+    background-image: url(/gardening/img/aboutUs/dr-sourabh-panari-878cggGk4FE-unsplash.jpg);
+    height: 532px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+
+
+
+.aboutus-pages #icon-row {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutus-pages #img-pos-1, #img-pos-2 ,
+#img-pos-3, #img-pos-4 {
+    margin-top: 15%;
+}
+
+
+
+.aboutus-pages .title {
+    color: white;
+    margin-top: 40px;
+}
+
+.aboutus-pages #service-line-1, #service-line-2,
+#service-line-3, #service-line-4 {
+    background-color: white;
+    width: 60px;
+}
+
+.aboutus-pages #service-p-1, #service-p-2,
+#service-p-3, #service-p-4 {
+    color: white;
+}
+
+/* The Team */
+
+.team .behind-the-brand {
+    text-align: center;
+}
+
+.team #team-line {
+    background-color: black;
+    width: 25%;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+
+.team #team-name-1, #team-name-2,
+#team-name-3 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.team #team-roll-1, #team-roll-2,
+#team-roll-3 {
+    text-align: center;
+    color: grey;
+    margin-top: 10px;
+}
+
+/* NewsLetter */
+
+.jumbotron--email {
+    background-image: url(/gardening/img/aboutUs/jess-bailey-K9BOrwoFVYc-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 65px 0 70px 0px;
+    height: 300px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+    
+}
+
+.jumbotron--email h1 {
+    text-align: center;
+    color: black;
+    margin-top: -1%;
+    margin-bottom: 20px;
+}
+.jumbotron--email p {
+    text-align: center;
+    justify-content: center;
+    color: grey;
+    font-size: 15px;
+}
+
+.jumbotron--email .email input[type=email] {
+    width: 235%;
+    border: none;
+    border-bottom: 1.5px solid grey;
+    padding: 5px 6px;
+    height: 40px;
+    background: transparent;
+    border-radius: 0;
+    outline: none;
+    margin-left: -70%;
+}
+
+
+#newsletter #button-arrow {
+    color: black;
+    border: none;
+    margin-left: 100%;
+    border-radius: 0;
+    font-size: 20px;
+    z-index: 1;
+    position: absolute;
+    top: 5%;
+    transition: transform 0.3s ease;
+    outline: none;
+    background: none;
+}
+
+#newsletter #button-arrow:hover {
+    outline: none;
+    transform: scale(1.1);
+}
+
+.jumbotron--email .email {
+    position: relative;
+    width: 17%;
+  }
+
+
+
+

@@ -1,0 +1,1005 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+    /* overflow-x: hidden; */
+}
+
+/* header */
+#header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition:0.6s;
+    padding-top: 10px;
+    color: #fff;
+    background-color: #fff;
+    padding: 30px 0px;
+    font-family: 'Jost', sans-serif;
+    z-index: 997;
+}
+#header.sticky {
+    background-color: #fff;
+    opacity: 0.9;
+    padding: 20px 0;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+}
+#header .logo1{
+    position:relative;
+    font-weight: 700;
+    color: #000;
+    padding-left: 10vh;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.6s;
+    font-size: 32px;
+    color: green;
+}
+#header .logo:hover {
+    color: #3EB489;
+}
+#header .nav-bar1>ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#header .nav-bar1>ul>li{
+    position: relative;
+    list-style: none;
+}
+#header .nav-bar1>ul>li>a{
+    position: relative;
+    margin: 0 15px;
+    text-decoration: none;
+    color: #000;
+    letter-spacing: 2px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.6s;
+}
+#header .nav-bar1>ul>li a:hover{
+    color: #3EB489;
+}
+#header .nav-bar1 ul ul {
+    position: absolute;
+    padding: 0;
+    letter-spacing: 2px;
+    font-weight: 600px;
+    margin: auto;
+    display: none;
+    list-style: none;
+    top: 100%;
+    left: 0;
+}
+#header .nav-bar1 ul>li>ul>li a{
+    text-decoration: none;
+    color: #000;
+}
+#header .nav-bar1 ul li:hover>ul{
+    display: block ;
+}
+#header .nav-bar1 ul ul li:hover{
+    background-color: #fff;
+}
+#header .nav-icon1{
+    display: flex;
+    align-items: center;
+}
+#header .nav-icon1 i{
+    margin-right: 30px;
+    font-size: 24px;
+    color: #000;
+    font-weight: 400;
+}
+#header .nav-icon1 i:hover{
+    transform: scale(1.2);
+    transition: 0.5s;
+    color: #3EB489;
+}
+#header .search-box1{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 42px;
+    border-radius: 30px;
+}
+#header .search-input1 {
+    color: #000;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    line-height: 30px;
+    transition: width 0.4s linear;
+}
+#header .search-box1:hover > .search-input1 {
+    width: 200px;
+    border-radius: 30px;
+    caret-color: #000;
+    padding-left: 10px;
+    border: 1px solid #000;
+    transition: width 0.4s linear;
+}
+#header .search-icon1 {
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+}
+#header .count-cart {
+    position: relative;
+    
+}
+#header .count-cart .count-cart-sup {
+    position: absolute;
+    top: -36px;
+    right: 20%;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #224229;
+    padding: 3px 6px;
+    text-decoration: dashed;
+    border-radius: 100%;
+    color: white;
+    z-index: 100000;
+    text-align: center;
+}
+/* Banner */
+#Banner .carousel {
+    color: white;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+}
+
+#Banner .carousel-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#Banner .item {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out, background-image 1s ease-in-out;
+    z-index: 1;
+}
+
+#Banner .item.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+#Banner .slide-text-1 {
+    font-size: 2.5rem;
+    font-weight: 200;
+    padding: 30vh 0 0 0;
+    margin: 0 0 0.3rem 0;
+    animation: jump1 1s forwards, fadeBackground 1s ease-in-out;
+}
+
+#Banner .slide-text-2 {
+    font-size: 5rem;
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+    animation: jump2 1s forwards, fadeBackground 1s ease-in-out;
+}
+
+#Banner .slide-text-3 {
+    font-size: 5rem;
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+    animation: jump3 1s forwards, fadeBackground 1s ease-in-out;
+}
+
+#Banner .slide-text-4 {
+    font-size: 2.8rem;
+    font-weight: 300;
+    padding: 0;
+    margin: 0;
+    animation: jump4 1s forwards, fadeBackground 1s ease-in-out;
+}
+
+@keyframes jump1 {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes jump2 {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes jump3 {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes jump4 {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes fadeBackground {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#Banner .slide-button {
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    padding: 1rem 3rem;
+    margin: 2rem auto 25vh;
+    font-size: 1rem;
+    z-index: 10;
+}
+
+#Banner .slide-button:hover {
+    border: none;
+    color: black;
+    background-color: white;
+}
+#Banner .slide-button:hover a {
+    color: black;
+}
+#Banner .slide-button a {
+    text-decoration: dashed;
+    color: white;
+}
+#Banner .slide-button a:hover {
+    text-decoration: dashed;
+    color: black;
+}
+
+#Banner .carousel-controls {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+#Banner .carousel-indicator {
+    width: 0.7rem;
+    height: 0.7rem;
+    background-color: #ffffff;
+    border-radius: 50%;
+    margin: 0 0.3rem;
+    cursor: pointer;
+}
+
+#Banner .carousel-indicator.active {
+    background-color: #ff0000;
+}
+
+/* Background images for slides */
+#Banner .item:nth-child(1) {
+    background-image: url('/gardening/img/banner/s1.webp');
+}
+
+#Banner .item:nth-child(2) {
+    background-image: url('/gardening/img/banner/s2.webp');
+}
+
+#Banner .background-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: opacity 1s ease-in-out;
+    z-index: -1;
+}
+
+#Banner .slide-content {
+    position: relative;
+    z-index: 1;
+}
+
+#Banner .item.active .background-image {
+    opacity: 1;
+}
+
+/* Banner phu*/
+.row-banner {
+    height: 60vh;
+    display: flex;
+    margin: 0;
+}
+
+.banner {
+    flex: 1;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    justify-content: center;
+}
+
+#banner1 {
+    background-image: url('/gardening/img/banner/banner1.webp');
+}
+
+#banner2 {
+    background-image: url('/gardening/img/banner/banner2.webp');
+}
+
+.curtain-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    z-index: 1;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.banner:hover .curtain-effect {
+    transform: translateX(0);
+}
+
+.col-text {
+    padding-top: 25%;
+    padding-bottom: 5%;
+    font-size: 3rem;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.banner:hover .col-text {
+    opacity: 1;
+}
+
+.banner-button {
+    position: absolute;
+    left: 39%;
+    z-index: 10;
+    opacity: 0;
+    font-size: 1rem;
+    padding: 1rem 3rem;
+    border: none; 
+}
+.banner-button a {
+    color: white;
+    text-decoration: dashed;
+    font-size: 14px;
+}
+.banner-button:hover {
+    background-color: white;
+}
+.banner-button:hover a {
+    text-decoration: dashed;
+    color: white;
+}
+.banner:hover .banner-button {
+    opacity: 1;
+    background-color: black;
+    color: #ffffff;
+}
+
+
+/* sale up comming */
+#sale .title {
+    text-align: center;
+}
+#sale .title h3 {
+    font-size: 24;
+    color: #222222;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-skip-ink: auto;
+}
+#sale .title p {
+    padding-top: 10px;
+    font-size: 17px;
+    color: #666666;
+}
+#sale .item-product {
+    position: relative;
+    margin-bottom: 30px;
+}
+#sale .item-product .product-label {
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    z-index: 56;
+}
+#sale .item-product .on-sale {
+    background-color: white;
+    padding: 3px 9px;
+    font-size: 14px;
+}
+#sale .product-img {
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    z-index: 55;
+}
+#sale .item-product .on-view {
+    position: absolute;
+    z-index: 56;
+    right: 5px;
+    top: 15px;
+    opacity: 0;
+}
+
+#sale .item-product:hover .on-view {
+    opacity: 1;
+    right: 30px;
+    transition: 0.5s all;
+}
+#sale .item-product:hover .on-view img {
+    opacity: 0.7;
+}
+#sale .product-img img {
+    max-width: 100%;
+    transition: all 0.5s;
+}
+#sale .product-img .img-change {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 1;
+}
+#sale .product-img:hover .img-change {
+    opacity: 0;
+}
+#sale .product-content {
+    text-align: center;
+}
+#sale .product-content .product-name {
+    padding: 20px 0 2px;
+    font-size: 16px;
+    color: #111111;
+    font-weight: 600;
+}
+
+
+/* Slick */
+
+.slick-arrow {
+    background: none;
+    position: absolute;
+    top: 35%;
+    transform: translateY(-50%);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    line-height: 1;
+    z-index: 5;
+    transition: all 0.2 linear;
+    width: 25px;
+    height: 45px;
+}
+
+.slick-prev {
+    left: -20px;
+    border: none;
+    color: gray;
+    z-index: 2;
+}
+.slick-next {
+    right: -20px;
+    border: none;
+    color: gray;
+    z-index: 2;
+}
+.product-img .view-detail {
+    text-decoration: dashed;
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    transition: 0.3s all;
+    z-index: 57;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    padding: 8px 5px;
+    cursor: pointer;
+}
+.product-img .view-detail a {
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    text-decoration: dashed;
+}
+.product-img:hover .view-detail{
+    opacity: 1;
+    bottom: 20px;
+  }
+.product-img .view-detail:hover {
+    background-color: #224229;
+}
+.product-img .view-detail:hover a {
+    color: white;
+}
+
+/* best selling */
+#bestselling .title {
+    text-align: center;
+}
+#bestselling .title h3 {
+    font-size: 24;
+    color: #222222;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-skip-ink: auto;
+}
+#bestselling .title p {
+    padding-top: 10px;
+    font-size: 17px;
+    color: #666666;
+}
+#bestselling .product-img {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+#bestselling .product-img .view-detail {
+    text-decoration: dashed;
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    position: absolute;
+    bottom: 0;
+    transition: 0.3s all;
+    z-index: 60;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    padding: 8px 5px;
+    cursor: pointer;
+    opacity: 0;
+}
+#bestselling .product-img:hover .view-detail {
+    opacity: 1;
+    bottom: 20px;
+}
+#bestselling .product-img .view-detail:hover {
+    color: white;
+    background-color: #224229;
+}
+#bestselling .item-product {
+    margin-bottom: 30px;
+}
+#bestselling .item-product .on-view {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 56;
+    right: 5px;
+    top: 15px;
+    opacity: 0;
+}
+
+#bestselling .item-product:hover .on-view {
+    opacity: 1;
+    right: 30px;
+    transition: 0.5s all;
+}
+#bestselling .item-product:hover .on-view img {
+    opacity: 0.7;
+}
+
+
+#bestselling .product-img img {
+    max-width: 100%;
+    transition: all 0.5s;
+}
+#bestselling .product-img .img-change {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 1;
+}
+#bestselling .product-img img {
+    max-width: 100%;
+    transition: all 0.5s;
+}
+#bestselling .product-img .img-change {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 1;
+}
+#bestselling .product-img:hover .img-change {
+    opacity: 0;
+}
+#bestselling .product-content {
+    text-align: center;
+}
+#bestselling .product-content .product-name {
+    padding: 20px 0 2px;
+    font-size: 16px;
+    color: #111111;
+    font-weight: 600;
+}
+
+
+/* Our Blog */
+#ourblog .title-ourblog {
+    text-align: center;
+    color: #111111;
+    font-size: 24px;
+    padding-bottom: 10px;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+}
+#ourblog .blog-content {
+    margin-top: 50px;
+}
+#ourblog .blog-content .blog-content-left {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+/* #ourblog .blog-content img{
+    width: 100%;
+    height: 80%;
+} */
+#ourblog .blog-content h3 {
+    font-size: 25px;
+    color: #111111;
+    margin: 30px 0 20px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+#ourblog .blog-content p {
+    font-size: 16px;
+    color: #909090;
+    margin-bottom: 16px;
+    line-height: 28px;
+}
+#ourblog .btn-blog {
+    background: white;
+    border: 1px solid black;
+    width: 150px;
+    padding: 10px 20px;
+}
+#ourblog .btn-blog a {
+    color: black;
+    text-decoration: dashed;
+}
+#ourblog .btn-blog:hover {
+    background-color: #224229;
+    border: 1ps solid white;
+}
+#ourblog .btn-blog:hover a {
+    color: white ;
+}
+
+/* Feedback */
+.fbslider {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .fbslide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+  }
+
+  .fbslide.active {
+    opacity: 1;
+  }
+
+  .fbslider-text {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    font-size: 20px;
+    transform: translateX(-50%);
+    color: #020202;
+    text-align: center;
+    opacity: 0;
+    transition: bottom 1s ease-in-out, opacity 1s ease-in-out;
+  }
+
+  .fbslider-text div:first-child {
+  font-weight: bold;
+  }
+
+  .fbslide.active .fbslider-text {
+    bottom: 50%;
+    opacity: 1;
+  }
+
+  .fbslider-button {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    font-size: 30px;
+    transform: translateX(-50%);
+    text-align: center;
+    opacity: 0;
+    transition: bottom 1.5s ease-in-out, opacity 1.5s ease-in-out;
+  }
+
+  .fbslide.active .fbslider-button {
+    bottom: 20%;
+    opacity: 1;
+    z-index: 10;
+  }
+
+  .bg-img {
+      background-size: contain; 
+      background-repeat:no-repeat; 
+      background-size :100% 100%;
+      border-radius :50%;
+      width :100px; 
+      height :100px; 
+      margin : 3rem auto 1rem;
+  }
+  
+  .navigation-circles {
+      position:absolute; 
+      bottom :5%; 
+      left :50%; 
+      transform :translateX(-50%); 
+      display :flex; 
+      align-items:center; 
+      z-index :1
+  }
+  
+  .circle {
+      width :10px; 
+      height :10px; 
+      background-color:#000000; 
+      border-radius :50%; 
+      margin :0px 5px; 
+      cursor:pointer
+  }
+  
+  .circle.active {
+      background-color:#a90404
+  }
+   
+   @media (min-width :768px) {
+       .fbslide {height :75vh}
+   }
+   
+   @media (min-width :992px) {
+       .fbslide {height :100vh}
+   }
+   
+   /* Add your custom styles here */
+
+  /* Style for slide transition */
+  /* Add your custom styles here */
+
+/* Style for slides container */
+.fbslides-container {
+display: flex;
+transition: transform 1s ease-in-out;
+}
+
+/* Style for slide */
+.fbslide {
+flex: 0 0 100%;
+}
+
+/* Style for slide transition */
+.fbslide.active ~ .fbslides-container {
+transform: translateX(-100%);
+}
+
+
+   /* Style for customer name */
+   .customer-name {font-weight:bold}
+   
+   /* Style for customer date */
+   .customer-date {color:#999}
+   
+   /* Style for navigation buttons */
+   .navigation-button {position:absolute; top :50%; cursor:pointer; color: #a90404;}
+   
+   /* Style for left navigation button */
+   .navigation-button.left {left :-25px}
+   
+   /* Style for right navigation button */
+   .navigation-button.right {right :-25px}
+   
+   /* Style for product image */
+   .product-image {width :100%; height:auto}
+
+/* our instagram */
+#onintagram {
+    margin-top: 80px;
+}
+#onintagram .title {
+    text-align: center;
+}
+#onintagram .title h3 {
+    font-size: 24;
+    color: #222222;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-skip-ink: auto;
+}
+#onintagram .title p {
+    padding-top: 10px;
+    font-size: 22px;
+    color: #666666;
+}
+#onintagram .img-contain{
+    display: flex;
+    position: relative;
+    /* margin-left: 50px; */
+    padding: 0;
+}
+#onintagram .img-contain img {
+    width: 20%;
+}
+#onintagram .title_insta {
+    color: #333;
+    margin: 0;
+    font-size: 16px;
+    line-height: 52px;
+    white-space: nowrap;
+    background-color: #fff;
+    cursor: pointer;
+}
+#onintagram .button2 h3{
+    position: absolute;
+    top: 35%;
+    left:43%;
+    padding: 3px 10px;
+    border-radius: 10px;
+}
+#onintagram .button2 h3:hover{
+    background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+    transition: 0.2s;
+}
+#onintagram .title_insta:before {
+    display: inline-block;
+    content: "";
+    width: 28px;
+    height: 28px;
+    background: url(/gardening/img/instagram/instagram.svg) no-repeat;
+    margin-right: 12px;
+    position: relative;
+    top: 9px;
+}
+
+/* Back to Top */
+#backtop {
+    width: 52px;
+    height: 52px;
+    background-color: none;
+    border: 1px solid #224229;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    cursor: pointer;
+  }
+  #backtop:hover {
+    background-color: #224229;
+    transition: 0.2s ease-in-out;
+  }
+  #backtop i {
+    color: black;
+  } 
+  #backtop:hover i {
+    color: #fff;
+  }
+
+
+/* footer */
+footer a{
+    text-decoration: none;
+    color: #111111;
+    font-size: 15px ;
+}
+footer a:hover {
+    text-decoration: dashed;
+}
+footer a:hover{
+    color: #3EB489;
+}
+
+/* responsive */
+@media (max-width: 1024px) and (min-width: 768px){
+    #header .logo1{
+        padding-left: 10px;
+    }
+    #header .search-input1{
+        display: none;
+    }
+    #header .search-icon1{
+        display: none;
+    }
+    #sale .slider-products{
+        margin: 0 50px;
+    }
+    #bestselling .best-seller{
+        margin: 38px 50px 0px;
+    }
+    .fbslide{
+        height: 40vh;
+    }
+    .fbslide .bg-img{
+        margin-top: -1px;
+    }
+    #header .nav-bar1{
+        margin-top: 11px;
+    }
+}
+
+

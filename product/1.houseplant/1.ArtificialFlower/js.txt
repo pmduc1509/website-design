@@ -1,0 +1,6 @@
+id: 1
+name: Artificial Flower
+price: 16.00
+quantity: 60
+desc:Artificial flowers are realistic imitation blooms made from materials like fabric and plastic. They mimic real flowers' appearance and are used for decoration, offering color and beauty without the need for care. They're popular in events, home décor, and arrangements.
+

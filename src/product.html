@@ -1,0 +1,204 @@
+<section id="header">
+    <a href="#" class="logo1">Plamt</a>
+        <div class="nav-bar1">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#!product">Product</a></li>
+                <li><a href="#!aboutUs">About us</a></li>
+                <li><a href="#!blog">Blog</a></li>
+                <li><a href="#!contact">Contact</a></li>
+            </ul>
+      </div>  
+        <div class="nav-icon1">
+            <div class="search-box1">
+                <input class="search-input1" type="text" placeholder="Search..." id="search" name="search" ng-model="product.name">
+                <a class="search-icon1"><i class="bx bx-search"></i></a>
+            </div>
+            <a href="/gardening/src/login.html"><i class="bx bx-user"></i></a>
+            <a href="#"><i class="bx bx-heart"></i></a>
+            <a ng-click="showcart()" style="cursor: pointer;">
+                <i class="bx bx-cart" ></i>
+                <div class="count-cart">
+                    <p class="count-cart-sup" ng-show="count > 0">{{ count }} </p>
+                </div>
+            </a>
+        </div>
+  </section>
+    <!-- Show cart -->
+   
+        <div class="showcart" ng-class="{ 'active': showCart }">
+            <div class="cart-detail">
+                <div class="title-cart">
+                    <p>SHOPPING CART({{ count }})</p>
+                    <p><a ng-click="closeCart()" style="cursor: pointer;"><i class="icon-close fa-solid fa-xmark fa-xl"></i></a></p>
+                </div>
+                <div style="overflow-y: scroll; margin-top: 20px;">
+
+                    <div class="content-cart" ng-repeat="item in cartItems">
+                        <div class="content-left">
+                            <img ng-src="{{ item.img1 }}">
+                        </div>
+                        <div class="content-right">
+                            <p>
+                                {{ item.name }}
+                            </p>
+                            <div class="quantity-price">
+                                <div class="price">
+                                    <button ng-click="downquantity(item)">-</button>
+                                <input type="number" ng-model="item.quantity" min="1" ng-change="updateQuantity(item)">
+                                <button ng-click="upquantity(item)">+</button>
+                                <p>
+                                    {{ item.price }}$
+                                </p>
+                                </div>
+        
+                                <div class="remove">
+                                    <a ng-click="deleteCartItems(item.id)" style="cursor: pointer;">Remove</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+         
+                </div>
+                
+            </div>
+            <div class="total-cart">
+                <div style="display: none;">{{ calculateSubTotal(item) | number: 2 }}</div>
+                <div class="title-total">
+                    <p style="font-weight: 600;">Total</p>
+                </div>
+                <div class="title-price">
+                    <p style="font-weight: 600;">{{ totalPrice | number: 2 }}$</p>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-cart">
+                <a href="#!checkout" style="color: black; font-size: 16px;">
+                    <button class="btn-checkout">Check out</button>
+                </a>
+                <a href="#!viewCart" style="color: black; font-size: 16px;">
+                    <button class="btn-viewcart">View cart</button>
+                </a>
+            </div>
+
+        </div>
+
+   
+    <div class="overlay" ng-class="{ 'active': showCart }" ng-click="closeCart()"></div> 
+
+    <!-- Banner product -->
+    <section id="banner-product" style="margin-top: 105px;">
+        <div class="container">
+            <div class="banner-main">
+                <h2 class="title-banner">Products</h2>
+                <p><a href="#">Home</a> <i class="fa-solid fa-chevron-right" style="color: #ffffff; padding: 0 10px; font-size: 11px;"></i> <a href="">Products</a></p>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products">
+        <div class="container-fluid" style="margin: 50px 0px 0px;">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="filter">
+                        <div class="category">
+                            <div class="title-category">
+                                <h5>CATEGORIES</h5>
+                            </div>
+                            <div class="text-category">
+                                <ul>
+                                    <li><a ng-click="filterByCategory('All')" >All</a></li>
+                                    <li><a ng-click="filterByCategory('houseplant')">House plant</a></li>
+                                    <li><a ng-click="filterByCategory('succulentplant')">Succulent plant</a></li>
+                                    <li><a ng-click="filterByCategory('outdoorplant')">Outdooplant</a></li>
+                                    <li><a ng-click="filterByCategory('flowershrub')">Flowershrub</a></li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <div class="title-price">
+                                <h5>PRICE</h5>
+                            </div>
+                            <div class="text-price">
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" ng-model="priceRange['10-15']" 
+                                        ng-click="updatePriceCheckStatus()" id="10-15">
+                                        <label for="10-15">$10 - $15</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" ng-model="priceRange['15-20']"
+                                        ng-click="updatePriceCheckStatus()" id="15-20">
+                                        <label for="15-20">$15 - $20</label>                                   
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" ng-model="priceRange['20-30']"
+                                        ng-click="updatePriceCheckStatus()" id="20-30">
+                                        <label for="20-30">$20 - $30</label>                                   
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" ng-model="priceRange['30-40']"
+                                        ng-click="updatePriceCheckStatus()" id="30-40">
+                                        <label for="30-40">$30 - $40</label>                                                                       
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" ng-model="priceRange['40-50']"
+                                        ng-click="updatePriceCheckStatus()" id="40-50">
+                                        <label for="40-50">$40 - $50</label>                                         
+                                    </li>                              
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="sortby">
+                        <select class="select-box" ng-model="sortOption">
+                            <option>Default Sorting</option>
+                            <option>Sort by Popularity</option>
+                            <option>Sort by Price: low to high</option>
+                            <option>Sort by Price: high to low</option>
+                            <option>Sort by Letter</option>
+                        </select>
+                        <div class="icon-select">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="product-main" style="margin-top: 50px;">
+                                <div class="item-product" ng-repeat="product in products | filter:product | filter:priceFilter
+                                | orderBy:sortByPriceHighToLow | orderBy:sortByPriceLowToHigh | filter:sortProducts | orderBy:sortByName | orderBy:sortByQuantity"
+                                ng-if="matchCategory(product)">
+                                    <div class="on-view">
+                                        <img src="/gardening/img/icons8-heart-24.png" alt="" style="margin-bottom: 10px; cursor: pointer;" >
+                                        <a href="#!details/{{ product.id }}/{{ product.name }}"><img src="/gardening/img/icons8-view-24.png" alt=""></a>
+                                    </div>
+                                    <div class="product-img">
+                                        <a href="#!details/{{ product.id }}/{{ product.name }}"><img ng-src="{{ product.img2 }}" alt=""></a>
+                                        <a href="#!details/{{ product.id }}/{{ product.name }}"><img ng-src="{{ product.img1 }}" alt="" class="img-change"></a>
+                                        <div class="view-detail">
+                                            <a style="cursor: pointer;" ng-click="addToCart(product)">
+                                                Add to cart
+                                            </a>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="product-content">
+                                        <h6  class="product-name">{{ product.name }}</h6>
+                                        <p style="font-weight: bold;">${{ product.price }}</p>
+                                    </div>
+                                </div>        
+
+
+                
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    

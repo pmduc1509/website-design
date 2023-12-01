@@ -1,0 +1,209 @@
+<section id="header">
+  <a href="#" class="logo1">Plamt</a>
+      <div class="nav-bar1">
+          <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#!product">Product</a></li>
+              <li><a href="#!aboutUs">About us</a></li>
+              <li><a href="#!blog">Blog</a></li>
+              <li><a href="#!contact">Contact</a></li>
+          </ul>
+    </div>  
+      <div class="nav-icon1">
+          <div class="search-box1">
+              <input class="search-input1" type="text" placeholder="Search..." id="search" name="search" ng-model="product.name">
+              <a class="search-icon1"><i class="bx bx-search"></i></a>
+          </div>
+          <a href="/gardening/src/login.html"><i class="bx bx-user"></i></a>
+          <a href="#"><i class="bx bx-heart"></i></a>
+          <a ng-click="showcart()" style="cursor: pointer;">
+              <i class="bx bx-cart" ></i>
+              <div class="count-cart">
+                  <p class="count-cart-sup" ng-show="count > 0">{{ count }} </p>
+              </div>
+          </a>
+      </div>
+</section>
+  <!-- Show cart -->
+ 
+      <div class="showcart" ng-class="{ 'active': showCart }">
+          <div class="cart-detail">
+              <div class="title-cart">
+                  <p>SHOPPING CART({{ count }})</p>
+                  <p><a ng-click="closeCart()" style="cursor: pointer;"><i class="icon-close fa-solid fa-xmark fa-xl"></i></a></p>
+              </div>
+              <div style="overflow-y: scroll; margin-top: 20px;">
+
+                  <div class="content-cart" ng-repeat="item in cartItems">
+                      <div class="content-left">
+                          <img ng-src="{{ item.img1 }}">
+                      </div>
+                      <div class="content-right">
+                          <p>
+                              {{ item.name }}
+                          </p>
+                          <div class="quantity-price">
+                              <div class="price">
+                                  <button ng-click="downquantity(item)">-</button>
+                              <input type="number" ng-model="item.quantity" min="1" ng-change="updateQuantity(item)">
+                              <button ng-click="upquantity(item)">+</button>
+                              <p>
+                                  {{ item.price }}$
+                              </p>
+                              </div>
+      
+                              <div class="remove">
+                                  <a ng-click="deleteCartItems(item.id)" style="cursor: pointer;">Remove</a>
+                              </div>
+                              
+                          </div>
+                      </div>
+                  </div>
+
+       
+              </div>
+              
+          </div>
+          <div class="total-cart">
+              <div style="display: none;">{{ calculateSubTotal(item) | number: 2 }}</div>
+              <div class="title-total">
+                  <p style="font-weight: 600;">Total</p>
+              </div>
+              <div class="title-price">
+                  <p style="font-weight: 600;">{{ totalPrice | number: 2 }}$</p>
+              </div>
+          </div>
+          <hr>
+          <div class="footer-cart">
+              <a href="#!checkout" style="color: black; font-size: 16px;">
+                  <button class="btn-checkout">Check out</button>
+              </a>
+              <a href="#!viewCart" style="color: black; font-size: 16px;">
+                  <button class="btn-viewcart">View cart</button>
+              </a>
+          </div>
+
+      </div>
+
+ 
+  <div class="overlay" ng-class="{ 'active': showCart }" ng-click="closeCart()"></div> 
+
+<!-- Check out -->
+
+<div id="billing-payment" class="container py-5">
+
+  <!--Section: Design Block-->
+  <section>
+
+    <div class="row">
+      <div class="col-md-8 mb-4">
+        <div class="card mb-4">
+          <div class="card-header py-3">
+            <h5 class="mb-0 text-font text-uppercase">Payment Details</h5>
+          </div>
+          <div class="card-body">
+            <form>
+
+              
+
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                      <label class="form-label" for="form11Example1">First name</label>
+                    <input type="text" id="form11Example1" class="form-control" style="text-transform: uppercase;" required/>
+                    
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                      <label class="form-label" for="form11Example2">Last name</label>
+                    <input type="text" id="form11Example2" class="form-control" style="text-transform: uppercase;" required/>
+                    
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                  <div class="col-md-9">
+                    <div class="form-outline">
+                        <label class="form-label" for="form11Example1">Card Number</label>
+                      <input type="number" id="form11Example3" class="form-control" required/>
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-outline">
+                        <label class="form-label" for="form11Example2">CCV</label>
+                      <input type="number" id="form11Example4" class="form-control" required />
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form11Example7">EXPIRATION DATE</label>
+                  <input type="date" id="form11Example5" class="form-control" required/>
+                  
+              </div>
+              <div class="back-to-shop"><a href="#!checkout" style="color: black;">&leftarrow; Return check out</a></div>
+              
+              <div class="form-check d-flex justify-content-center mb-2">
+               
+               
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+     
+
+      
+      <div id="item-cart" class="col-md-4 mb-4 position-static">
+          <div class="card mb-4">
+            <div class="card-header py-3">
+              <h5 class="mb-0 text-font">Item ({{ count }})</h5>
+            </div>
+            <div class="card-body">
+             <!-- <div ng-repeat="item in cartItems"> -->
+              <div class="row" ng-repeat="item in cartItems">
+                <div class="col-md-12 d-flex justify-content-between" style="align-items: center;" >
+                  <p class="mb-0 text-descriptions">{{ item.name }} </p>                  
+                  <p class="mb-0 text-price">${{ item.price }}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="card-footer">
+                <ul class="list-group list-group-flush">
+                  <div class="row">
+                      <div class="col" style="padding-left:0;">Item(s) total</div>
+                      <div class="col text-right">${{ totalPrice | number: 2 }}</div>
+                  </div>
+                  <div class="row">
+                  <p>Tax:</p> <p class="col text-right">$2.50</p>
+                </div>
+                  <div class="row">
+                    <p>SHIPPING:</p>
+                    <p class="col text-right">$5.00 </p>
+                    </div>
+                    <hr>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center px-0 fw-bold text-uppercase">
+                    Total to pay
+                    <span>${{ total| number: 2 }}</span>
+                  </li>
+                </ul>
+              </div>
+              <hr>
+             <!-- </div> -->
+              <div class="text-center d-flex" style="flex-wrap: wrap; justify-content: center;">
+                  <a id="button-processToPayment" href="#!complete">
+                      <button id="button-payment" type="button" class="btn button-order col-md-10"> Pay</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+</div>
+

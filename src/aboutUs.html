@@ -1,0 +1,236 @@
+<section id="header">
+  <a href="#" class="logo1">Plamt</a>
+      <div class="nav-bar1">
+          <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#!product">Product</a></li>
+              <li><a href="#!aboutUs">About us</a></li>
+              <li><a href="#!blog">Blog</a></li>
+              <li><a href="#!contact">Contact</a></li>
+          </ul>
+    </div>  
+      <div class="nav-icon1">
+          <div class="search-box1">
+              <input class="search-input1" type="text" placeholder="Search..." id="search" name="search" ng-model="product.name">
+              <a class="search-icon1"><i class="bx bx-search"></i></a>
+          </div>
+          <a href="/gardening/src/login.html"><i class="bx bx-user"></i></a>
+          <a href="#"><i class="bx bx-heart"></i></a>
+          <a ng-click="showcart()" style="cursor: pointer;">
+              <i class="bx bx-cart" ></i>
+              <div class="count-cart">
+                  <p class="count-cart-sup" ng-show="count > 0">{{ count }} </p>
+              </div>
+          </a>
+      </div>
+</section>
+  <!-- Show cart -->
+ 
+      <div class="showcart" ng-class="{ 'active': showCart }">
+          <div class="cart-detail">
+              <div class="title-cart">
+                  <p>SHOPPING CART({{ count }})</p>
+                  <p><a ng-click="closeCart()" style="cursor: pointer;"><i class="icon-close fa-solid fa-xmark fa-xl"></i></a></p>
+              </div>
+              <div style="overflow-y: scroll; margin-top: 20px;">
+
+                  <div class="content-cart" ng-repeat="item in cartItems">
+                      <div class="content-left">
+                          <img ng-src="{{ item.img1 }}">
+                      </div>
+                      <div class="content-right">
+                          <p>
+                              {{ item.name }}
+                          </p>
+                          <div class="quantity-price">
+                              <div class="price">
+                                  <button ng-click="downquantity(item)">-</button>
+                              <input type="number" ng-model="item.quantity" min="1" ng-change="updateQuantity(item)">
+                              <button ng-click="upquantity(item)">+</button>
+                              <p>
+                                  {{ item.price }}$
+                              </p>
+                              </div>
+      
+                              <div class="remove">
+                                  <a ng-click="deleteCartItems(item.id)" style="cursor: pointer;">Remove</a>
+                              </div>
+                              
+                          </div>
+                      </div>
+                  </div>
+
+       
+              </div>
+              
+          </div>
+          <div class="total-cart">
+              <div style="display: none;">{{ calculateSubTotal(item) | number: 2 }}</div>
+              <div class="title-total">
+                  <p style="font-weight: 600;">Total</p>
+              </div>
+              <div class="title-price">
+                  <p style="font-weight: 600;">{{ totalPrice | number: 2 }}$</p>
+              </div>
+          </div>
+          <hr>
+          <div class="footer-cart">
+              <a href="#!checkout" style="color: black; font-size: 16px;">
+                  <button class="btn-checkout">Check out</button>
+              </a>
+              <a href="#!viewCart" style="color: black; font-size: 16px;">
+                  <button class="btn-viewcart">View cart</button>
+              </a>
+          </div>
+
+      </div>
+
+ 
+  <div class="overlay" ng-class="{ 'active': showCart }" ng-click="closeCart()"></div> 
+
+<!-- About Us -->
+    <div id="jumbotron-aboutUs" class="jumbotron" style="margin-top: 105px;">
+      <div id="aboutus-pos" class="container-fluid">
+        <h2 class="display-4" id="about-us-text">About Us</h2>
+
+      <div class="home-page">
+        <a href="#" title="Back to the frontpage" id="home-text">
+          Home
+        </a>
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>  
+        <strong id="Strong-aboutUs">About Us</strong>
+      </div>
+      </div>
+    </div>
+
+    <div class="aboutus-section" style="margin-bottom: 80px;">
+      <div id="container-story-whoAreWe" class="container" >
+        <div class="about-intro">
+          <div id="row-intro" class="row">
+            <div class="col-md-6 intro-detail">
+              <div class="info-intro">
+              <h3 class="title-intro">Our Story</h3>
+              <hr class="my-4">
+              <p id="detail-story">In the heart of the city, we found our haven: a garden where dreams take root. What began as a barren patch has flourished into a vibrant oasis, echoing our journey of growth and connection.<br><br><br> Through sunlit days and nurturing hands, we've learned the art of patience and the joy of watching life bloom. Join us in cultivating not just plants, but a shared love for the beauty and serenity nature brings. Welcome to our story of turning soil into solace.</p>
+            </div>
+            </div>
+            <div class="col-md-6 ">
+              <img loading="lazy" width height class="w-100" src="/gardening/img/aboutUs/pelargoniums-for-europe-aHFlP2qKrxc-unsplash.jpg" alt="" id="intro-image">
+            </div>
+          </div>
+          <div class="row" id="row-whoAreWe">
+            <div class="col-md-6 ">
+              <img loading="lazy" width height class="w-100" src="/gardening/img/aboutUs/freddie-marriage-UcfKYTan-LU-unsplash.jpg" alt="" id="intro-image">
+            </div>
+            <div id="whoAreWe-detail" class="col-md-6">
+              <div class="info-whoAreWe">
+              <h3 class="title-whoAreWe">Who Are We?</h3>
+              <hr class="my-4">
+              <p id="detail-whoAreWe">We are a dedicated group of nature enthusiasts, bound by our love for all things green. With a shared vision of bringing life to urban spaces, we've transformed neglected corners into thriving gardens.<br><br> Our hands are seasoned with the earth's touch, and our hearts beat to the rhythm of growth.<br><br> Through sweat and laughter, we've learned that gardening is more than a pastime – it's a journey of nurturing dreams and fostering connections. Join us as we continue to cultivate beauty, community, and the simple joy of watching life flourish.</p>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="aboutus-pages">
+      <div id="about-servicebox" class="jumbotron">
+        <div id="icon-row" class="container-fluid">
+        <div id="row-center" class="row">
+        <div class="col-md-3 col-sm-2">
+          <img id="img-pos-1" src="/gardening/img/aboutUs/icons8-location-100.png" alt="">
+          <h4 class="title">
+            Location           
+          </h4>
+          <hr id="service-line-1" class="my-4">
+          <p id="service-p-1">8A-Ton That Thuyet-Ha Noi</p>
+        </div>
+        <div class="col-md-3 col-sm-2">
+          <img id="img-pos-2" src="/gardening/img/aboutUs/icons8-phone-100.png" alt="">
+          <h4 class="title">
+            Call Us          
+          </h4>
+          <hr id="service-line-2" class="my-4">
+          <p id="service-p-2">1-800-700-600 <br> 1-800-700-601
+            </p>
+        </div>
+        <div class="col-md-3 col-sm-2">
+          <img id="img-pos-3" src="/gardening/img/aboutUs/icons8-chat-96.png" alt="">
+          <h4 class="title">
+            Write to Us          
+          </h4>
+          <hr id="service-line-3" class="my-4">
+          <p id="service-p-3">office@gardena.com<br>nursery@gardena.com</p>
+        </div>
+        <div class="col-md-3 col-sm-2">
+          <img id="img-pos-4" src="/gardening/img/aboutUs/icons8-clock-90.png" alt="">
+          <h4 class="title">
+            Working Hours           
+          </h4>
+          <hr id="service-line-4" class="my-4">
+          <p id="service-p-4">Monday - Friday: 9am to 6pm <br>Saturday - Sunday: 9am to 5pm</p>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+
+    <div id="team" class="container">
+      <div class="behind-the-brand">
+      <h1>Our Team</h1>
+      <p>We are the "Dynamic Innovators," a vibrant and creative team of five enthusiastic individuals currently pursuing our education at FPT Aptech. Bound together by a shared passion for technology, innovation, and collaboration, we are committed to pushing the boundaries of our knowledge and skills while fostering a positive and supportive team environment. Our diverse backgrounds and unique talents come together to form a powerhouse of creativity and resourcefulness.</p>
+        <hr id="team-line" class="my-4">
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <img width height class="w-100" src="/gardening/img/aboutUs/team.jpg" style="height: 300px; width: 300px;"  alt="">
+        </div>
+
+        <div class="col-md-4">
+          <img width height class="w-100" src="/gardening/img/aboutUs/aeb832a1c4e216bc4ff3.jpg" style="height: 300px; width: 300px;" alt="">
+          <h4 id="team-name-2">THE SUN</h4>
+          <p id="team-roll-2">FPT APTECH</p>
+        </div>
+
+        <div class="col-md-4">
+          <img  src="/gardening/img/aboutUs/team 3.jpg" style="height: 300px; width: 320px;" alt="">
+        </div>
+      </div>
+    </div>
+    
+      <div id="newsletter" class="container-fluid jumbotron--email">
+        <h1 class="display-4">Our Newsletter</h1>
+        <p class="lead">Enjoy our newsletter to stay updated with the latest news!</p>
+        <form action="" class="email">
+          <div class="input-container">
+            <input aria-required="true" aria-invalid="false" placeholder="Your email..." value="" type="email" name="your-email" required>
+            <button id="button-arrow" type="submit">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <section id="onintagram">
+        <div class="title">
+            <h3>PLAMT ON INSTAGRAM</h3>
+            <p>#plamt</p>         
+        </div>
+        <div class="row container-fluid" style="margin: 0;padding: 0;">
+            <div class="img-contain">
+                    <img src="/gardening/img/instagram/instagram1.jpg" alt="">              
+                    <img src="/gardening/img/instagram/instagram2.jpg" alt="">
+                    <img src="/gardening/img/instagram/instagram3.jpg" alt="">              
+                    <img src="/gardening/img/instagram/instagram4.jpg" alt="">
+                    <img src="/gardening/img/instagram/instagram5.jpg" alt="">
+                    <div class="button2">
+                        <h3 class="title_insta">Follow Us On Instagram</h3>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+
+
+

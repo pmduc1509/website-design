@@ -1,0 +1,7 @@
+id: 3
+name: Cvetlicarna Rosa
+price: 14.00
+quantity: 75
+desc: 
+The Cvetličarna Rosa, a whimsical creation, boasts petite blossoms resembling tiny storefronts. Hailing from Slovenia, its petals showcase gradients from velvety purple to sunset orange. Emitting an alluring aroma reminiscent of pastries and rare perfumes, this plant remains a challenge to cultivate due to its specific needs. Encounter the Cvetličarna Rosa for a glimpse into a world where flowers enchant like cherished shops.
+
